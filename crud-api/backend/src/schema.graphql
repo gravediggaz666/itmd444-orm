@@ -1,0 +1,38 @@
+type Query {
+  products: [Product!]!
+  categories: [Category!]!
+  orders: [Order!]!
+  users: [User!]!
+}
+
+type Product {
+  id: String!
+  name: String!
+  sku: String!
+  description: String
+  quantity: Int!
+  categories: [Category!]!
+  orders: [Order!]!
+}
+
+type Category {
+  id: Int!
+  name: String!
+  products: [Product!]!
+}
+
+type Order {
+  id: String!
+  userId: Int
+  customer: User
+  products: [Product!]!
+}
+
+type User {
+  id: Int!
+  email: String!
+  firstName: String
+  lastName: String
+  address: String
+  orders: [Order!]!
+}
